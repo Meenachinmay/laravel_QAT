@@ -37,6 +37,16 @@ class DocsController extends Controller
     public function show_one_doc($id) {
         $document = Document::where('id', $id)->get();
 
-        return view('single_doc', compact('document'));
+        return view('single_doc', (['document' => $document, 'id' => $id]));
+    }
+
+    public function delete($id) {
+        $document = Document::find(1);
+
+        $document->delete();
+
+        $documents = Document::all();
+
+        return view('view_doc', compact('documents'));
     }
 }

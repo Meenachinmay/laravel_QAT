@@ -17,7 +17,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($document as $item)
+            @forelse($document as $item)
                 <tr>
                     <th scope="row">{{$item->id}}</th>
                     <td>{{ $item->name }}</td>
@@ -29,8 +29,14 @@
                     <td>{{ $item->pan_card_no }}</td>
                     <td>{{ $item->aadhar_card_no }}</td>
                 </tr>
-            @endforeach
+            @empty
+                <h1>Data is deleted</h1>
+            @endforelse
             </tbody>
         </table>
+        <form action="{{ route('delete', ['id' => $id]) }}" method="post">
+            @csrf
+            <button class="btn btn-primary" type="submit">Remove Your data</button>
+        </form>
     </div>
 @endsection
