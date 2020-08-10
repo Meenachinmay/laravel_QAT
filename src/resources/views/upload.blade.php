@@ -61,9 +61,6 @@
                         </div>
                         <button type="submit" class="btn btn-primary ">Upload</button>
                     </form>
-                    <form method="post" action="{{ route('upload_pan_image') }}" enctype="multipart/form-data">
-                        @csrf
-                    </form>
                 </div>
             </div>
         </div>
