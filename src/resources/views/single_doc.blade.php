@@ -17,7 +17,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($documents as $item)
+            @foreach($document as $item)
                 <tr>
                     <th scope="row">{{$item->id}}</th>
                     <td>{{ $item->name }}</td>

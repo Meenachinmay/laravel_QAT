@@ -23,18 +23,20 @@ class DocsController extends Controller
             "aadhar_card_no" => "required"
         ]);
 
-        Document::create($validatedData);
+        $saved = Document::create($validatedData);
 
-        return view('docs_saved');
+        return view('show');
     }
 
-    public function show_doc($id) {
-        $document = Document::where('id', $id)->first();
-
-        return view('view_doc', compact('document'));
+    public function show_doc() {
+        $documents = Document::all();
+//        dd($document);
+        return view('view_doc', compact('documents'));
     }
 
-    public function update_doc($id) {
+    public function show_one_doc($id) {
+        $document = Document::where('id', $id)->get();
 
+        return view('single_doc', compact('document'));
     }
 }
